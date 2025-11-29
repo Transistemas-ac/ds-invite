@@ -1,6 +1,6 @@
 name = "ds-invite"
 main = "src/worker.js"
-assets = { directory = "./public" }
+assets = { binding = "ASSETS", directory = "./public" }
 compatibility_date = "2025-11-11"
 workers_dev = false
 
