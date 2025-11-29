@@ -1,4 +1,4 @@
-import { generateTimedHash } from "../utils/hash.js";
+import generateTimedHash from "../utils/hash.js";
 
 export default async function generateToken(request, env) {
   const url = new URL(request.url);
