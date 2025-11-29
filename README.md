@@ -64,10 +64,6 @@ DS-INVITE/
 
 <br>
 
-## 🔑 Variables en Cloudflare
-
-<br>
-
 ## ⚙️ Endpoints del Worker
 
 - `GET /login/discord` → inicia OAuth2

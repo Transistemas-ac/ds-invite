@@ -16,7 +16,7 @@ export default async function handleDiscordCallback(url, env) {
       client_secret: env.CLIENT_SECRET,
       grant_type: "authorization_code",
       code,
-      redirect_url: env.REDIRECT_URL,
+      redirect_uri: env.REDIRECT_URI,
     }),
   });
 
@@ -51,13 +51,11 @@ export default async function handleDiscordCallback(url, env) {
 
   const cookie = await createSessionCookie(discordId, env);
 
-  const redirectTarget = env.POST_LOGIN_REDIRECT_URL || "/";
-
   return new Response(null, {
     status: 302,
     headers: {
       "Set-Cookie": cookie,
-      Location: redirectTarget,
+      Location: "/",
     },
   });
 }
