@@ -27,7 +27,7 @@ export async function generateTimedHash(ttlSeconds, env) {
   const expiresAt = Date.now() + ttlSeconds * 1000;
   const payload = String(expiresAt);
 
-  const signature = await sign(payload, env.ROLE_TOKEN_SECRET);
+  const signature = await sign(payload, env.SECRET);
 
   return {
     token: `${payload}.${signature}`,
@@ -43,7 +43,7 @@ export async function verifyTimedHash(token, env) {
 
   const [payload, signature] = parts;
 
-  const expected = await sign(payload, env.ROLE_TOKEN_SECRET);
+  const expected = await sign(payload, env.SECRET);
   if (signature !== expected) return false;
 
   const expiresAt = parseInt(payload, 10);

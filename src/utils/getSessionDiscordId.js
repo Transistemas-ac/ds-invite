@@ -8,7 +8,7 @@ export default async function getSessionDiscordId(request, env) {
   if (parts.length !== 2) return null;
   const [discordId, signature] = parts;
   if (!discordId || !signature) return null;
-  const valid = await verifyDiscordId(discordId, signature, env.SESSION_SECRET);
+  const valid = await verifyDiscordId(discordId, signature, env.SECRET);
   if (!valid) return null;
   return discordId;
 }
