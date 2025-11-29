@@ -2,6 +2,8 @@
 
 Servicio en **Cloudflare Workers** que genera URLs temporales para que estudiantes puedan acceder a los canales exclusivos del servidor de Discord de Transistemas. Incluye autenticación OAuth2, sesiones firmadas y validación segura de tokens con tiempo de expiración.
 
+<img src="./public/ui.png"></img>
+
 <br>
 
 ## 🚀 Funcionalidad principal
@@ -32,7 +34,7 @@ Si el token es válido y la sesión está autenticada, el Worker usa la API de D
 Permite generar la URL temporal desde Discord usando el <a href="https://github.com/Transistemas-ac/">bot</a>.
 
 - `/invitar dias:<n>` → genera directamente una invitación válida n días.
- 
+
 - Sin argumentos muestra botones interactivos:  
   `1 día`, `1 semana`, `2 semanas` y `1 mes`, cada uno generando automáticamente la invitación correspondiente.
 
@@ -46,6 +48,7 @@ ds-invite/
 │ └── `styles.css`  
 │ └── `scripts.js`  
 │ └── `favicon.png`  
+│ └── `ui.png`  
 ├── src/  
 │ ├── controllers/  
 │ │ ├── `generateToken.js`  
