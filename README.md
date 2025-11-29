@@ -67,7 +67,7 @@ DS-INVITE/
 ## ⚙️ Endpoints del Worker
 
 - `GET /login/discord` → inicia OAuth2
-- ``GET /auth/discord/callback` → procesa OAuth y crea sesión
+- `GET /auth/discord/callback` → procesa OAuth y crea sesión
 - `PUT /user` → devuelve el discordId si la sesión es válida
 - `GET /hash?ttl=<segundos>` → genera token temporal
 - `POST /?token=<hash>` → asigna rol si token y sesión son válidos
@@ -83,10 +83,10 @@ DS-INVITE/
 - Ningún secreto se versiona en Git
 - Cloudflare Workers y Discord Bot correctamente aislados
 - Se configuran como secrets:
-  - wrangler secret put CLIENT_ID
-  - wrangler secret put CLIENT_SECRET
-  - wrangler secret put BOT_TOKEN
-  - wrangler secret put SECRET
+  - `npx wrangler secret put CLIENT_ID`
+  - `npx wrangler secret put CLIENT_SECRET`
+  - `npx wrangler secret put BOT_TOKEN`
+  - `npx wrangler secret put SECRET`
 
 <br>
 
