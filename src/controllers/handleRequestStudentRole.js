@@ -1,4 +1,5 @@
 import getSessionDiscordId from "../utils/getSessionDiscordId.js";
+import parseCookies from "../utils/parseCookies.js";
 import { verifyTimedHash } from "../utils/hash.js";
 
 export default async function handleRequestStudentRole(request, env) {
@@ -12,7 +13,12 @@ export default async function handleRequestStudentRole(request, env) {
     });
   }
 
-  const token = url.searchParams.get("token");
+  let token = url.searchParams.get("token");
+  if (!token) {
+    const cookies = parseCookies(request.headers.get("Cookie") || "");
+    token = cookies.inviteToken || null;
+  }
+
   const valid = await verifyTimedHash(token, env);
 
   if (!valid) {

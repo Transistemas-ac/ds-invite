@@ -5,6 +5,16 @@
     <title>Conectar Discord con Transistemas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
+  <script>
+    // Guarda el token temporal de invitación en una cookie segura
+    (function storeInviteToken() {
+      const url = new URL(window.location.href);
+      const token = url.searchParams.get("token");
+      if (token) {
+        document.cookie = `inviteToken=${token}; Path=/; SameSite=None; Secure`;
+      }
+    })();
+  </script>
   <body>
     <main class="container">
       <h1 class="title">Conectá Discord con la App de Transistemas</h1>
