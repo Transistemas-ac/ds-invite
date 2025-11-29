@@ -1,5 +1,5 @@
 import getSessionDiscordId from "../utils/getSessionDiscordId.js";
-import verifyTimedHash from "../utils/hash.js";
+import { verifyTimedHash } from "../utils/hash.js";
 
 export default async function handleRequestStudentRole(request, env) {
   const url = new URL(request.url);
