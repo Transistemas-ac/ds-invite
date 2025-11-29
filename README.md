@@ -39,28 +39,28 @@ Permite generar la URL temporal desde Discord usando el bot.
 
 ## 📁 Estructura del proyecto
 
-DS-INVITE/
+ds-invite/  
 ├── public/  
-│ └── index.html  
+│ └── `index.html`  
 ├── src/  
 │ ├── controllers/  
-│ │ ├── generateToken.js  
-│ │ ├── handleDiscordCallback.js  
-│ │ ├── handlePutUser.js  
-│ │ ├── handleRequestStudentRole.js  
-│ │ └── redirectToDiscordOAuth.js  
+│ │ ├── `generateToken.js`  
+│ │ ├── `handleDiscordCallback.js`  
+│ │ ├── `handlePutUser.js`  
+│ │ ├── `handleRequestStudentRole.js`  
+│ │ └── `redirectToDiscordOAuth.js`  
 │ ├── utils/  
-│ │ ├── base64UrlDecode.js  
-│ │ ├── base64UrlEncode.js  
-│ │ ├── createSessionCookie.js  
-│ │ ├── getSessionDiscordId.js  
-│ │ ├── hash.js  
-│ │ ├── parseCookies.js  
-│ │ ├── signDiscordId.js  
-│ │ └── verifyDiscordId.js  
-│ └── worker.js  
-├── wrangler.toml  
-└── README.md
+│ │ ├── `base64UrlDecode.js`  
+│ │ ├── `base64UrlEncode.js`  
+│ │ ├── `createSessionCookie.js`  
+│ │ ├── `getSessionDiscordId.js`  
+│ │ ├── `hash.js`  
+│ │ ├── `parseCookies.js`  
+│ │ ├── `signDiscordId.js`  
+│ │ └── `verifyDiscordId.js`  
+│ └── `worker.js`  
+├── `wrangler.toml`  
+└── `README.md`
 
 <br>
 
