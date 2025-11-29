@@ -92,13 +92,13 @@ DS-INVITE/
 
 ## 🧪 Flujo completo
 
-- 1. Admin ejecuta el comando `/invitar` del bot de Discord para generar una URL y elige la cantidad de días que debe estar activa.
-- 2. El bot responde con una URL temporal para compartir con les estudiantes.
-- 3. Les estudiantes ingresan a `ds.transistemas.org/?token=...`
-- 4. Conectan su Discord mediante OAuth.
-- 5. El Worker valida token + sesión.
-- 6. Se asigna automáticamente el rol de `Estudiante`”`.
-- 7. Cuando el tiempo asignado pasa el token se vuelve inválido para asignar rol de `Estudiante`.
+1. Admin ejecuta el comando `/invitar` del bot de Discord para generar una URL y elige la cantidad de días que debe estar activa.
+2. El bot responde con una URL temporal para compartir con les estudiantes.
+3. Les estudiantes ingresan a `ds.transistemas.org/?token=...`
+4. Conectan su Discord mediante OAuth.
+5. El Worker valida token + sesión.
+6. Se asigna automáticamente el rol de `Estudiante`”`.
+7. Cuando el tiempo asignado pasa el token se vuelve inválido para asignar rol de `Estudiante`.
 
 <br>
 
