@@ -2,159 +2,18 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Conectar Discord con Transistemas</title>
+    <title>Sumate al Discord de Transistemas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 20px;
-      }
-
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 16px;
-        padding: 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-
-      .title {
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 10px;
-      }
-
-      .subtitle {
-        color: #666;
-        margin-bottom: 40px;
-        line-height: 1.6;
-      }
-
-      .steps {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .step {
-        border: 2px solid #e0e0e0;
-        border-radius: 12px;
-        padding: 24px;
-        transition: all 0.3s ease;
-      }
-
-      .step:hover {
-        border-color: #667eea;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-      }
-
-      .step-number {
-        display: inline-block;
-        width: 36px;
-        height: 36px;
-        background: #667eea;
-        color: white;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 36px;
-        font-weight: bold;
-        margin-bottom: 16px;
-      }
-
-      .step-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 8px;
-      }
-
-      .step-description {
-        color: #666;
-        line-height: 1.6;
-        margin-bottom: 16px;
-      }
-
-      code {
-        background: #f5f5f5;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-size: 0.9em;
-        color: #d63384;
-      }
-
-      .button {
-        display: inline-block;
-        padding: 12px 24px;
-        background: #667eea;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s ease;
-      }
-
-      .button:hover:not(:disabled) {
-        background: #5568d3;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-      }
-
-      .button:disabled {
-        background: #ccc;
-        cursor: not-allowed;
-      }
-
-      .button.secondary {
-        background: #764ba2;
-      }
-
-      .button.secondary:hover:not(:disabled) {
-        background: #5e3a82;
-      }
-
-      .status {
-        margin-top: 30px;
-        padding: 16px;
-        border-radius: 8px;
-        text-align: center;
-        font-weight: 500;
-      }
-
-      .status.neutral {
-        background: #e3f2fd;
-        color: #1976d2;
-      }
-
-      .status.success {
-        background: #e8f5e9;
-        color: #2e7d32;
-      }
-
-      .status.error {
-        background: #ffebee;
-        color: #c62828;
-      }
-
-      .status:empty {
-        display: none;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <script>
-    // Guarda el token temporal de invitación en una cookie segura
+    // Guarda el token temporal de invitación en una cookie segura para conservarlo luego del redirect_uri
     (function storeInviteToken() {
       const url = new URL(window.location.href);
       const token = url.searchParams.get("token");
@@ -165,20 +24,22 @@
   </script>
   <body>
     <main class="container">
-      <h1 class="title">Conectá Discord con la App de Transistemas</h1>
+      <h1 class="title">🌈 Sumate al Discord de Transistemas 🏳️‍⚧️</h1>
       <p class="subtitle">
-        Seguí estos pasos para usar Discord, vincular tu cuenta y obtener acceso
-        a los canales exclusivos de estudiantes.
+        Seguí estos pasos para vincular tu cuenta y acceder a los canales
+        exclusivos de estudiantes.
       </p>
 
       <section class="steps">
         <article class="step">
-          <div class="step-number">1</div>
           <div class="step-header">
-            <div class="step-title">Descargar Discord</div>
-            <div class="step-description">
-              Si todavía no tenés Discord instalado en tu PC o celular,
-              descargalo desde la página oficial.
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">Descargar Discord</div>
+              <div class="step-description">
+                Si todavía no tenés Discord instalado descargalo desde la página
+                oficial.
+              </div>
             </div>
           </div>
           <div class="step-actions">
@@ -194,14 +55,16 @@
         </article>
 
         <article class="step">
-          <div class="step-number">2</div>
           <div class="step-header">
-            <div class="step-title">
-              Unirte al servidor de Discord de Transistemas
-            </div>
-            <div class="step-description">
-              Iniciá sesión en Discord y sumate a nuestro servidor oficial para
-              participar de la comunidad.
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">
+                Unirte al servidor de Discord de Transistemas
+              </div>
+              <div class="step-description">
+                Iniciá sesión en Discord y sumate al servidor oficial de nuestra
+                comunidad.
+              </div>
             </div>
           </div>
           <div class="step-actions">
@@ -217,16 +80,15 @@
         </article>
 
         <article class="step">
-          <div class="step-number">3</div>
           <div class="step-header">
-            <div class="step-title">
-              Conectar Discord a la App de Transistemas
-            </div>
-            <div class="step-description">
-              Al hacer clic se llamará a
-              <code>PUT https://ds.transistemas.org/user</code>. La API se
-              encargará de obtener tu Discord ID usando OAuth (no tenés que
-              pegar nada).
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">
+                Conectar Discord a la API de Transistemas
+              </div>
+              <div class="step-description">
+                La API se encargará de obtener tu Discord ID usando OAuth.
+              </div>
             </div>
           </div>
           <div class="step-actions">
@@ -237,16 +99,16 @@
         </article>
 
         <article class="step">
-          <div class="step-number">4</div>
           <div class="step-header">
-            <div class="step-title">
-              Acceder a canales exclusivos de Estudiantes
-            </div>
-            <div class="step-description">
-              Una vez vinculada tu cuenta, podés solicitar el acceso a los
-              canales de estudiantes. Esto llama a
-              <code>POST https://ds.transistemas.org/</code>, que es el servicio
-              donde vive el bot.
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-title">
+                Acceder a canales exclusivos de Estudiantes
+              </div>
+              <div class="step-description">
+                Una vez vinculada tu cuenta, podés solicitar acceso a los
+                canales de estudiantes.
+              </div>
             </div>
           </div>
           <div class="step-actions">
@@ -259,108 +121,6 @@
 
       <p id="statusMessage" class="status neutral"></p>
     </main>
-
-    <script>
-      const connectButton = document.getElementById("connectButton");
-      const roleButton = document.getElementById("roleButton");
-      const statusMessage = document.getElementById("statusMessage");
-
-      function setStatus(text, type) {
-        statusMessage.textContent = text || "";
-        statusMessage.className = "status " + (type || "neutral");
-      }
-
-      async function connectDiscord() {
-        connectButton.disabled = true;
-        roleButton.disabled = true;
-        setStatus(
-          "Conectando tu Discord con la App de Transistemas…",
-          "neutral"
-        );
-
-        try {
-          const response = await fetch("/user", {
-            method: "PUT",
-            credentials: "include",
-          });
-
-          if (response.status === 401) {
-            setStatus(
-              "Redirigiendo a Discord para autorizar la conexión…",
-              "neutral"
-            );
-            window.location.href = "/login/discord";
-            return;
-          }
-
-          if (!response.ok) {
-            setStatus(
-              "No se pudo conectar tu Discord. Intentá de nuevo.",
-              "error"
-            );
-            connectButton.disabled = false;
-            return;
-          }
-
-          setStatus(
-            "Discord conectado correctamente a la App de Transistemas.",
-            "success"
-          );
-          connectButton.disabled = false;
-          roleButton.disabled = false;
-        } catch (error) {
-          setStatus(
-            "Error de conexión con el servidor. Intentá de nuevo más tarde.",
-            "error"
-          );
-          connectButton.disabled = false;
-        }
-      }
-
-      async function requestStudentRole() {
-        roleButton.disabled = true;
-        setStatus(
-          "Solicitando acceso a los canales de Estudiantes…",
-          "neutral"
-        );
-
-        try {
-          const response = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            credentials: "include",
-            body: JSON.stringify({}),
-          });
-
-          if (!response.ok) {
-            const errorData = await response.json();
-            setStatus(
-              errorData.error ||
-                "No se pudo otorgar el acceso. Intentá de nuevo o contactá al equipo.",
-              "error"
-            );
-            roleButton.disabled = false;
-            return;
-          }
-
-          setStatus(
-            "¡Listo! Ya tenés acceso a los canales de Estudiantes.",
-            "success"
-          );
-          roleButton.disabled = false;
-        } catch (error) {
-          setStatus(
-            "Error de conexión con el bot. Intentá de nuevo más tarde.",
-            "error"
-          );
-          roleButton.disabled = false;
-        }
-      }
-
-      connectButton.addEventListener("click", connectDiscord);
-      roleButton.addEventListener("click", requestStudentRole);
-    </script>
+    <script src="scripts.js"></script>
   </body>
 </html>
