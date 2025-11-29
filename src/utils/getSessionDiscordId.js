@@ -1,4 +1,5 @@
 import parseCookies from "./parseCookies";
+import verifyDiscordId from "./verifyDiscordId";
 
 export default async function getSessionDiscordId(request, env) {
   const cookies = parseCookies(request.headers.get("Cookie") || "");
