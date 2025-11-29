@@ -2,7 +2,7 @@ name = "ds-invite"
 main = "src/worker.js"
 assets = { binding = "ASSETS", directory = "./public" }
 compatibility_date = "2025-11-11"
-workers_dev = false
+workers_dev = true
 routes = [
   { pattern = "ds.transistemas.org/*", zone_name = "transistemas.org" }
 ]
