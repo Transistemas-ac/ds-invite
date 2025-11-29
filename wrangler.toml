@@ -1,8 +1,16 @@
 name = "ds-invite"
 main = "src/worker.js"
-assets = { binding = "ASSETS", directory = "./public" }
+
+# CRÍTICO: Agregar html_handling y not_found_handling
+[assets]
+directory = "./public"
+binding = "ASSETS"
+html_handling = "none"
+not_found_handling = "none"
+
 compatibility_date = "2025-11-11"
 workers_dev = true
+
 routes = [
   { pattern = "ds.transistemas.org/*", zone_name = "transistemas.org" }
 ]
