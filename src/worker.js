@@ -32,7 +32,6 @@ export default {
       });
     }
 
-    // Rutas de autenticación
     if (url.pathname === "/login/discord" && request.method === "GET") {
       return redirectToDiscordOAuth(env);
     }
@@ -46,15 +45,13 @@ export default {
     }
 
     if (url.pathname === "/hash" && request.method === "GET") {
-      return generateToken(request, env);
+      return generateToken(request, env, allowOrigin);
     }
 
-    // Asignación de rol de estudiante
     if (url.pathname === "/" && request.method === "POST") {
       return handleRequestStudentRole(request, env, allowOrigin);
     }
 
-    // Servir index.html usando Assets
     if (url.pathname === "/" && request.method === "GET") {
       try {
         // Construir una nueva Request con el pathname correcto

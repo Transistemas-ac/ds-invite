@@ -1,6 +1,6 @@
 import { generateTimedHash } from "../utils/hash.js";
 
-export default async function generateToken(request, env) {
+export default async function generateToken(request, env, allowOrigin) {
   const url = new URL(request.url);
   const ttl = parseInt(url.searchParams.get("ttl") || "0", 10);
 
@@ -8,6 +8,10 @@ export default async function generateToken(request, env) {
 
   return new Response(JSON.stringify({ token, expiresAt }), {
     status: 200,
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": allowOrigin,
+      "Access-Control-Allow-Credentials": "true",
+    },
   });
 }

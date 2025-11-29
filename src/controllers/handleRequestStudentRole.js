@@ -2,12 +2,16 @@ import getSessionDiscordId from "../utils/getSessionDiscordId.js";
 import parseCookies from "../utils/parseCookies.js";
 import { verifyTimedHash } from "../utils/hash.js";
 
-export default async function handleRequestStudentRole(request, env) {
+export default async function handleRequestStudentRole(
+  request,
+  env,
+  allowOrigin
+) {
   const url = new URL(request.url);
 
   const baseHeaders = {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "https://ds.transistemas.org",
+    "Access-Control-Allow-Origin": allowOrigin,
     "Access-Control-Allow-Credentials": "true",
   };
 
