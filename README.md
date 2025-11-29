@@ -2,7 +2,7 @@
 
 Servicio en **Cloudflare Workers** que genera URLs temporales para que estudiantes puedan acceder a los canales exclusivos del servidor de Discord de Transistemas. Incluye autenticación OAuth2, sesiones firmadas y validación segura de tokens con tiempo de expiración.
 
-<img src="./public/ui2.png"></img>
+<img src="./public/ui.png"></img>
 
 <br>
 
