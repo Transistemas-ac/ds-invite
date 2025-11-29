@@ -14,14 +14,10 @@ El Worker conecta la cuenta de cada persona mediante Discord OAuth2 para obtener
 
 ### Generación de hashes temporales
 
-`GET /hash?ttl=<segundos>` devuelve un token firmado que expira luego de un tiempo configurable; por ejemplo:  
+`GET /hash?ttl=<segundos>` devuelve un token firmado que expira luego de un tiempo configurable; por ejemplo:
+
 `/hash?ttl=86400` → 24 horas.
-
-### URL temporal de invitación
-
-El frontend arma una URL como:  
-`https://ds.transistemas.org/?token=<hash>`  
-Solo usuarios con ese token pueden solicitar el rol de estudiante.
+Solo usuaries con ese token pueden solicitar el rol de estudiante.
 
 ### Asignación del rol de “Estudiante”
 
