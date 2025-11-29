@@ -1,4 +1,4 @@
-import { createSessionCookie } from "../utils.js";
+import createSessionCookie from "../utils/createSessionCookie.js";
 
 export default async function handleDiscordCallback(url, env) {
   const code = url.searchParams.get("code");

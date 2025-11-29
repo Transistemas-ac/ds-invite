@@ -1,4 +1,4 @@
-import getSessionDiscordId from "../utils.js";
+import getSessionDiscordId from "../utils/getSessionDiscordId";
 
 export default async function handlePutUser(request, env) {
   const discordId = await getSessionDiscordId(request, env);
