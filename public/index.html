@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Conectar Discord con Transistemas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">Conectá Discord con la App de Transistemas</h1>
+      <p class="subtitle">
+        Seguí estos pasos para usar Discord, vincular tu cuenta y obtener acceso
+        a los canales exclusivos de estudiantes.
+      </p>
+
+      <section class="steps">
+        <article class="step">
+          <div class="step-number">1</div>
+          <div class="step-header">
+            <div class="step-title">Descargar Discord</div>
+            <div class="step-description">
+              Si todavía no tenés Discord instalado en tu PC o celular,
+              descargalo desde la página oficial.
+            </div>
+          </div>
+          <div class="step-actions">
+            <a
+              href="https://discord.com/download"
+              target="_blank"
+              rel="noreferrer"
+              class="button"
+            >
+              Descargar Discord
+            </a>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-number">2</div>
+          <div class="step-header">
+            <div class="step-title">
+              Unirte al servidor de Discord de Transistemas
+            </div>
+            <div class="step-description">
+              Iniciá sesión en Discord y sumate a nuestro servidor oficial para
+              participar de la comunidad.
+            </div>
+          </div>
+          <div class="step-actions">
+            <a
+              href="https://discord.gg/TU_INVITE_DE_TRANSISTEMAS"
+              target="_blank"
+              rel="noreferrer"
+              class="button"
+            >
+              Unirme al servidor de Transistemas
+            </a>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-number">3</div>
+          <div class="step-header">
+            <div class="step-title">
+              Conectar Discord a la App de Transistemas
+            </div>
+            <div class="step-description">
+              Al hacer clic se llamará a
+              <code>PUT https://ds.transistemas.org/user</code>. La API se
+              encargará de obtener tu Discord ID usando OAuth (no tenés que
+              pegar nada).
+            </div>
+          </div>
+          <div class="step-actions">
+            <button id="connectButton" class="button">
+              Conectar Discord a la App
+            </button>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-number">4</div>
+          <div class="step-header">
+            <div class="step-title">
+              Acceder a canales exclusivos de Estudiantes
+            </div>
+            <div class="step-description">
+              Una vez vinculada tu cuenta, podés solicitar el acceso a los
+              canales de estudiantes. Esto llama a
+              <code>POST https://ds.transistemas.org/</code>, que es el servicio
+              donde vive el bot.
+            </div>
+          </div>
+          <div class="step-actions">
+            <button id="roleButton" class="button secondary" disabled>
+              Solicitar acceso a canales de Estudiantes
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <p id="statusMessage" class="status neutral"></p>
+    </main>
+
+    <script>
+      const connectButton = document.getElementById("connectButton");
+      const roleButton = document.getElementById("roleButton");
+      const statusMessage = document.getElementById("statusMessage");
+
+      function setStatus(text, type) {
+        statusMessage.textContent = text || "";
+        statusMessage.className = "status " + (type || "neutral");
+      }
+
+      async function connectDiscord() {
+        connectButton.disabled = true;
+        roleButton.disabled = true;
+        setStatus(
+          "Conectando tu Discord con la App de Transistemas…",
+          "neutral"
+        );
+
+        try {
+          const response = await fetch("https://ds.transistemas.org/user", {
+            method: "PUT",
+            credentials: "include",
+          });
+
+          if (response.status === 401) {
+            setStatus(
+              "Redirigiendo a Discord para autorizar la conexión…",
+              "neutral"
+            );
+            window.location.href = "https://ds.transistemas.org/login/discord";
+            return;
+          }
+
+          if (!response.ok) {
+            setStatus(
+              "No se pudo conectar tu Discord. Intentá de nuevo.",
+              "error"
+            );
+            connectButton.disabled = false;
+            return;
+          }
+
+          setStatus(
+            "Discord conectado correctamente a la App de Transistemas.",
+            "success"
+          );
+          connectButton.disabled = false;
+          roleButton.disabled = false;
+        } catch (error) {
+          setStatus(
+            "Error de conexión con el servidor. Intentá de nuevo más tarde.",
+            "error"
+          );
+          connectButton.disabled = false;
+        }
+      }
+
+      async function requestStudentRole() {
+        roleButton.disabled = true;
+        setStatus(
+          "Solicitando acceso a los canales de Estudiantes…",
+          "neutral"
+        );
+
+        try {
+          const response = await fetch("https://ds.transistemas.org/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({}),
+          });
+
+          if (!response.ok) {
+            setStatus(
+              "No se pudo otorgar el acceso. Intentá de nuevo o contactá al equipo.",
+              "error"
+            );
+            roleButton.disabled = false;
+            return;
+          }
+
+          setStatus(
+            "Solicitud enviada. El bot va a otorgarte acceso a los canales de Estudiantes.",
+            "success"
+          );
+          roleButton.disabled = false;
+        } catch (error) {
+          setStatus(
+            "Error de conexión con el bot. Intentá de nuevo más tarde.",
+            "error"
+          );
+          roleButton.disabled = false;
+        }
+      }
+
+      connectButton.addEventListener("click", connectDiscord);
+      roleButton.addEventListener("click", requestStudentRole);
+    </script>
+  </body>
+</html>

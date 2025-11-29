@@ -1,0 +1,20 @@
+name = "ds-invite"
+main = "worker/src/worker.js"
+assets = { directory = "./public" }
+compatibility_date = "2025-11-11"
+workers_dev = false
+
+[vars]
+GUILD_ID = "879811697559367820"
+STUDENT_ROLE_ID = "879812347504521256"
+
+REDIRECT_URL = "https://ds.transistemas.org/auth/discord/callback"
+INVITE_URL = "https://discord.com/invite/yuYpD6QW74"
+API_URL = "ñamñam.com"
+
+[observability]
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
