@@ -32,10 +32,13 @@ export default async function handleRequestStudentRole(
   const valid = await verifyTimedHash(token, env);
 
   if (!valid) {
-    return new Response(JSON.stringify({ error: "Invalid or expired token" }), {
-      status: 403,
-      headers: baseHeaders,
-    });
+    return new Response(
+      JSON.stringify({ error: "❌ Token no válido o expirado" }),
+      {
+        status: 403,
+        headers: baseHeaders,
+      }
+    );
   }
 
   const apiUrl = `https://discord.com/api/guilds/${env.GUILD_ID}/members/${discordId}/roles/${env.STUDENT_ROLE_ID}`;
@@ -48,10 +51,13 @@ export default async function handleRequestStudentRole(
   });
 
   if (!res.ok && res.status !== 204) {
-    return new Response(JSON.stringify({ error: "Failed to assign role" }), {
-      status: 502,
-      headers: baseHeaders,
-    });
+    return new Response(
+      JSON.stringify({ error: "❌ Error al asignar rol de Estudiante" }),
+      {
+        status: 502,
+        headers: baseHeaders,
+      }
+    );
   }
 
   return new Response(JSON.stringify({ success: true }), {
