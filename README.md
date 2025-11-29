@@ -27,7 +27,7 @@ Si el token es válido y la sesión está autenticada, el Worker usa la API de D
 
 ## 🤖 Comando `/invitar`
 
-Permite generar la URL temporal desde Discord usando el <a href="https://github.com/Transistemas-ac/">bot de Transistemas</a>.
+Permite generar la URL temporal desde Discord usando el <a href="https://github.com/Transistemas-ac/bot">bot de Transistemas</a>.
 
 - `/invitar dias:<n>` → genera directamente una invitación válida n días.
 
