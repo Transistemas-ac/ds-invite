@@ -90,5 +90,24 @@ async function requestStudentRole() {
   }
 }
 
+// Detectar si acabamos de volver del OAuth de Discord
+function checkOAuthReturn() {
+  const url = new URL(window.location.href);
+  const code = url.searchParams.get("code");
+  const state = url.searchParams.get("state");
+
+  // Si hay un código OAuth en la URL, significa que volvimos del redirect
+  if (code) {
+    // Limpiar la URL para que se vea más limpia
+    window.history.replaceState({}, document.title, window.location.pathname);
+
+    // Ejecutar automáticamente la conexión
+    connectDiscord();
+  }
+}
+
 connectButton.addEventListener("click", connectDiscord);
 roleButton.addEventListener("click", requestStudentRole);
+
+// Ejecutar al cargar la página
+checkOAuthReturn();
