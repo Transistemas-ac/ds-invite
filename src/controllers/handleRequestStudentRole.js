@@ -5,11 +5,17 @@ import { verifyTimedHash } from "../utils/hash.js";
 export default async function handleRequestStudentRole(request, env) {
   const url = new URL(request.url);
 
+  const baseHeaders = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "https://ds.transistemas.org",
+    "Access-Control-Allow-Credentials": "true",
+  };
+
   const discordId = await getSessionDiscordId(request, env);
   if (!discordId) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), {
       status: 401,
-      headers: { "Content-Type": "application/json" },
+      headers: baseHeaders,
     });
   }
 
@@ -24,7 +30,7 @@ export default async function handleRequestStudentRole(request, env) {
   if (!valid) {
     return new Response(JSON.stringify({ error: "Invalid or expired token" }), {
       status: 403,
-      headers: { "Content-Type": "application/json" },
+      headers: baseHeaders,
     });
   }
 
@@ -40,12 +46,12 @@ export default async function handleRequestStudentRole(request, env) {
   if (!res.ok && res.status !== 204) {
     return new Response(JSON.stringify({ error: "Failed to assign role" }), {
       status: 502,
-      headers: { "Content-Type": "application/json" },
+      headers: baseHeaders,
     });
   }
 
   return new Response(JSON.stringify({ success: true }), {
     status: 200,
-    headers: { "Content-Type": "application/json" },
+    headers: baseHeaders,
   });
 }
