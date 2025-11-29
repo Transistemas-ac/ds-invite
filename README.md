@@ -27,11 +27,11 @@ Si el token es válido y la sesión está autenticada, el Worker usa la API de D
 
 <br>
 
-## 🤖 Comando `/invitar-estudiantes`
+## 🤖 Comando `/invitar`
 
 Permite generar la URL temporal desde Discord usando el bot.
 
-- `/invitar-estudiantes dias:<n>` → genera directamente una invitación válida n días.
+- `/invitar dias:<n>` → genera directamente una invitación válida n días.
 - Sin argumentos muestra botones interactivos:  
   **1 día**, **1 semana**, **2 semanas**, **1 mes**, cada uno generando automáticamente la invitación correspondiente.
 
