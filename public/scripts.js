@@ -10,7 +10,7 @@ function setStatus(text, type) {
 async function connectDiscord() {
   connectButton.disabled = true;
   roleButton.disabled = true;
-  setStatus("Conectando tu Discord con la App de Transistemas…", "neutral");
+  setStatus("Conectando tu Discord con la API de Transistemas…", "neutral");
 
   try {
     const response = await fetch("/user", {
@@ -37,7 +37,7 @@ async function connectDiscord() {
     }
 
     setStatus(
-      "💚 Discord conectado correctamente a la App de Transistemas.",
+      "💚 Discord conectado correctamente a la API de Transistemas.",
       "success"
     );
     connectButton.disabled = false;
@@ -59,7 +59,7 @@ async function requestStudentRole() {
     const response = await fetch("/", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "APIlication/json",
       },
       credentials: "include",
       body: JSON.stringify({}),
