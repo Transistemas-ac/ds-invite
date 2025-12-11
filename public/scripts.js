@@ -59,7 +59,7 @@ async function requestStudentRole() {
     const response = await fetch("/", {
       method: "POST",
       headers: {
-        "Content-Type": "Application/json",
+        "Content-Type": "APIlication/json",
       },
       credentials: "include",
       body: JSON.stringify({}),
@@ -90,12 +90,35 @@ async function requestStudentRole() {
   }
 }
 
+async function autoCheckDiscordConnection() {
+  try {
+    const response = await fetch("/user", {
+      method: "PUT",
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      connectButton.disabled = false;
+      roleButton.disabled = true;
+      return;
+    }
+
+    setStatus(
+      "💚 Discord conectado correctamente a la API de Transistemas.",
+      "success"
+    );
+    connectButton.disabled = false;
+    roleButton.disabled = false;
+  } catch (error) {
+    connectButton.disabled = false;
+  }
+}
+
 connectButton.addEventListener("click", connectDiscord);
 roleButton.addEventListener("click", requestStudentRole);
 
 document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  if (params.has("code")) {
-    connectDiscord();
-  }
+  connectButton.disabled = false;
+  roleButton.disabled = true;
+  autoCheckDiscordConnection();
 });
