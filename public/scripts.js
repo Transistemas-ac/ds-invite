@@ -59,7 +59,7 @@ async function requestStudentRole() {
     const response = await fetch("/", {
       method: "POST",
       headers: {
-        "Content-Type": "APIlication/json",
+        "Content-Type": "Application/json",
       },
       credentials: "include",
       body: JSON.stringify({}),
