@@ -36,7 +36,7 @@ export default async function handleRequestStudentRole(
     return new Response(
       JSON.stringify({
         error:
-          "No eres miembrx del servidor. Primero debés unirte al servidor de Discord haciendo click en 'Unirme al servidor de Transistemas'."
+          "Primero debés unirte al servidor de Discord en el paso 2 y luego volver a apretar 'Conectar Discord a la API'"
       }),
       {
         status: 403,
