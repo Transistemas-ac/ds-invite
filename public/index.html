@@ -18,9 +18,17 @@
     // Guarda el token temporal de invitación en una cookie segura para conservarlo luego del redirect_uri
     (function storeInviteToken() {
       const url = new URL(window.location.href);
-      const token = url.searchParams.get("token");
+      let token = url.searchParams.get("token");
+      if (!token) {
+        const cookies = document.cookie.split(";").reduce((acc, c) => {
+          const [k, v] = c.trim().split("=");
+          acc[k] = v;
+          return acc;
+        }, {});
+        token = cookies.inviteToken || null;
+      }
       if (token) {
-        document.cookie = `inviteToken=${token}; Path=/; SameSite=None; Secure`;
+        document.cookie = `inviteToken=${token}; Path=/; SameSite=None; Secure; Max-Age=604800`;
       }
     })();
   </script>
