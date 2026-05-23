@@ -30,10 +30,11 @@ async function connectDiscord() {
     if (!response.ok) {
       const errorData = await response.json();
       setStatus(
-        errorData.error || "❌ No se pudo conectar tu Discord. Intentá de nuevo.",
+        errorData.error || "❌ No se pudo conectar tu Discord.",
         "error"
       );
       connectButton.disabled = false;
+      roleButton.disabled = true;
       return;
     }
 
@@ -49,6 +50,7 @@ async function connectDiscord() {
       "error"
     );
     connectButton.disabled = false;
+    roleButton.disabled = true;
   }
 }
 
@@ -99,15 +101,12 @@ async function autoCheckDiscordConnection() {
     });
 
     if (!response.ok) {
-      if (response.status === 401) {
-        connectButton.disabled = false;
-        roleButton.disabled = true;
-        return;
-      }
-      const errorData = await response.json();
-      setStatus(errorData.error || "❌ No pudiste conectar tu Discord.", "error");
       connectButton.disabled = false;
       roleButton.disabled = true;
+      if (response.status !== 401) {
+        const errorData = await response.json();
+        setStatus(errorData.error || "❌ No pudiste conectar tu Discord.", "error");
+      }
       return;
     }
 
