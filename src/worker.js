@@ -11,7 +11,7 @@ export default {
     // Determinar el origen permitido dinámicamente
     const allowedOrigins = [
       "https://ds.transistemas.org",
-      "https://ds-invite.dns-monitor.workers.dev",
+      "https://ds-invite.dns-monitor.workers.dev"
     ];
 
     const requestOrigin = request.headers.get("Origin");
@@ -27,8 +27,8 @@ export default {
           "Access-Control-Allow-Origin": allowOrigin,
           "Access-Control-Allow-Credentials": "true",
           "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type",
-        },
+          "Access-Control-Allow-Headers": "Content-Type"
+        }
       });
     }
 
@@ -64,5 +64,5 @@ export default {
     }
 
     return new Response("Not found", { status: 404 });
-  },
+  }
 };
